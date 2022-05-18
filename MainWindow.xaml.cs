@@ -23,12 +23,10 @@ namespace Calcus
         public MainWindow()
         {
             InitializeComponent();
-            
         }
 
-        private void Plus(object sender, RoutedEventArgs e)
+        public void Plus(object sender, RoutedEventArgs e)
         {
-
             var znac1 = z1.Text;
 
             var znac2 = z2.Text;
@@ -36,6 +34,17 @@ namespace Calcus
             var plus = Convert.ToDouble(znac1) + Convert.ToDouble(znac2);
 
             Result.Text = plus.ToString();
+        }
+
+        public void Delenie(object sender, RoutedEventArgs e)
+        {
+            var znac1 = z1.Text;
+
+            var znac2 = z2.Text;
+
+            var Delenie = Convert.ToDouble(znac1) / Convert.ToDouble(znac2);
+
+            Result.Text = Delenie.ToString();
         }
     }
 }
