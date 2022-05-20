@@ -23,6 +23,8 @@ namespace Calcus
         public MainWindow()
         {
             InitializeComponent();
+            this.z1.PreviewTextInput += new TextCompositionEventHandler(textBox_PreviewTextInput);
+            this.z2.PreviewTextInput += new TextCompositionEventHandler(textBox_PreviewTextInput);
         }
 
         public void Plus(object sender, RoutedEventArgs e)
@@ -45,6 +47,12 @@ namespace Calcus
             var Delenie = Convert.ToDouble(znac1) / Convert.ToDouble(znac2);
 
             Result.Text = Delenie.ToString();
+        }
+
+        void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0) && e.Text != ",") 
+                e.Handled = true;
         }
     }
 }
